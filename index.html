@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mariella hairstylist Milano - Homepage</title>
+    <title>Coding web app</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <section class="container">
-      <button id="area-riservata">Area riservata</button>
+      <h1>
+        Class profile Master in Management & Technology - Major in Digital
+        Business Strategy
+      </h1>
+      <p>
+        Qui puoi trovare l'elenco dei partecipanti e
+        <a href="#" class="cta-programma">il programma</a> del modulo "Coding
+        Web App"
+      </p>
 
-      <h1>Mariella hairstylist a Milano</h1>
-      <address>Ci trovi in via Cinque Giornate, 36</address>
-      <img src="mariella.jpeg" />
+      <div class="class-profile list">
+        <h3>Class profile</h3>
+        <ul></ul>
+      </div>
+      <hr />
 
-      <p>Scopri i <a href="prezzi.html">nostri prezzi</a>.</p>
+      <button class="cta-programma">Consulta il programma</button>
     </section>
 
     <script>
-      var bottone = document.getElementById("area-riservata");
-      bottone.addEventListener("click", function () {
-        var nome = prompt("Identificati");
-        if (nome.length > 0) {
-          // Saluto
-          alert("Benvenuto " + nome);
-        } else {
-          // Invito a registrarsi
-          alert("Non risulti registrato, per favore registrati.");
-        }
+      var programCTAs = Array.from(document.querySelectorAll(".cta-programma"));
+      var participants = Array.from(
+        document.querySelectorAll(".class-profile li")
+      );
+      programCTAs.forEach((cta) => {
+        cta.addEventListener("click", function () {
+          var nome = prompt("Inserisci il tuo nome e cognome");
+          var isAuth = participants.some(
+            (partecipant) =>
+              partecipant.innerHTML.toLowerCase() === nome.toLowerCase()
+          );
+          if (isAuth) {
+            // Saluto
+            alert("Benvenuto " + nome);
+            window.open("/program.html");
+          } else {
+            // Invito a registrarsi
+            alert(
+              "Non risulti un partecipante, hai inserito il tuo nome correttamente?"
+            );
+          }
+        });
       });
     </script>
   </body>
