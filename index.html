@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mariella hairstylist Milano - Homepage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <button id="area-riservata">Area riservata</button>
+
+      <h1>Mariella hairstylist a Milano</h1>
+      <address>Ci trovi in via Cinque Giornate, 36</address>
+      <img src="mariella.jpeg" />
+
+      <p>Scopri i <a href="prezzi.html">nostri prezzi</a>.</p>
+    </section>
+
+    <script>
+      var bottone = document.getElementById("area-riservata");
+      bottone.addEventListener("click", function () {
+        var nome = prompt("Identificati");
+        if (nome.length > 0) {
+          // Saluto
+          alert("Benvenuto " + nome);
+        } else {
+          // Invito a registrarsi
+          alert("Non risulti registrato, per favore registrati.");
+        }
+      });
+    </script>
+  </body>
+</html>
